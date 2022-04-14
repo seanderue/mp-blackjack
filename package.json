@@ -1,0 +1,23 @@
+{
+  "name": "mp-blackjack",
+  "version": "1.0.0",
+  "description": "multiplayer blackjack",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.3",
+    "socket.io": "^4.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanderue/mp-blackjack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seanderue/mp-blackjack/issues"
+  },
+  "homepage": "https://github.com/seanderue/mp-blackjack#readme"
+}
