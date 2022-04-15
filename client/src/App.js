@@ -1,6 +1,7 @@
 import './App.css';
 import io from 'socket.io-client'
 import { useEffect, useState } from 'react'
+import Blackjack from './components/Blackjack.js'
 const socket = io.connect("http://localhost:3001")
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
-      setMessageReceived(data.message)
+      setMessageReceived(data)
     })
   }, [socket])
 
@@ -27,8 +28,9 @@ function App() {
         <button onClick={sendMessage}> Send Message </button>
         <h1>Message: </h1>
         {messageReceived}
+        <Blackjack/>
     </div>
-  );
+  )
 }
 
 export default App;

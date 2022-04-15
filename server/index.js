@@ -1,12 +1,15 @@
-const express = require('express')
-const app = express()
-const http = require('http')
-const server = http.createServer(app)
-const cors = require("cors")
+import express from 'express'
+import http from 'http'
+import cors from 'cors'
+import {Card, Deck} from "./deck.js"
+import { Server } from "socket.io"
 
+const app = express()
+const server = http.createServer(app)
 app.use(cors())
 
-const { Server } = require("socket.io")
+const ace = new Card(11, "ace", "clubs")
+ace.print()
 
 const io = new Server(server, {
   cors: {
@@ -31,9 +34,20 @@ io.on('connection', (socket) => {
     console.log('user disconnected')
   })
   
-  socket.on('send_message', (data) => {
-    socket.broadcast.emit('receive_message', data)
+  socket.on('send_action', (data) =>
+  {
+    socket.broadcast.emit('publish_action', (data) =>
+    {
+      
+    })
   })
+
+  // let msg = ace.print()
+  // console.log(ace.print())
+  // socket.on('send_message', (data) => 
+  // {
+  //   socket.broadcast.emit('receive_message', (msg)
+  // )})
 
 })
 
